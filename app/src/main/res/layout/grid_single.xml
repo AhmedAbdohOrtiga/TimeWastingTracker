@@ -3,20 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="5dp"
+
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/colorWhite">
 
     <ImageView
         android:id="@+id/app_icon"
         android:layout_width="50dp"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:gravity="center"
+        >
     </ImageView>
 
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textSize="12sp" >
     </TextView>
 
@@ -24,6 +28,7 @@
         android:id="@+id/total_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textSize="9sp" >
     </TextView>
 

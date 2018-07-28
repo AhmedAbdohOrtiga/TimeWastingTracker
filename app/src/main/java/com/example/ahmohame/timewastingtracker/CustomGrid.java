@@ -31,8 +31,7 @@ public class CustomGrid extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
-        return 0;
+        return position;
     }
 
     @Override
@@ -43,19 +42,16 @@ public class CustomGrid extends BaseAdapter{
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
-            grid = new View(mContext);
-            grid = inflater.inflate(R.layout.grid_single, null);
-            TextView appName = (TextView) grid.findViewById(R.id.app_name);
-            TextView totalTime = (TextView) grid.findViewById(R.id.total_time);
-            ImageView appIcon = (ImageView)grid.findViewById(R.id.app_icon);
-            int reversePosition = position;
-            appName.setText(apps[reversePosition].appName);
-            appIcon.setImageDrawable(apps[reversePosition].icon);
-            totalTime.setText(mapTimeToString(apps[reversePosition].totalTime));
-        } else {
-            grid = (View) convertView;
+            convertView = inflater.inflate(R.layout.grid_single, null);
         }
-        return grid;
+        TextView appName = (TextView) convertView.findViewById(R.id.app_name);
+        TextView totalTime = (TextView) convertView.findViewById(R.id.total_time);
+        ImageView appIcon = (ImageView)convertView.findViewById(R.id.app_icon);
+        appName.setText(apps[position].appName);
+        appIcon.setImageDrawable(apps[position].icon);
+        totalTime.setText(mapTimeToString(apps[position].totalTime));
+
+        return convertView;
     }
 
     private String mapTimeToString(long timeMilliSec){
